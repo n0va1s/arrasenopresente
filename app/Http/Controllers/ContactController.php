@@ -44,7 +44,7 @@ class ContactController extends Controller
         $contact = new Contact();
         $contact->fill($validated);
         $contact->save();
-        Log::info("[PRESENTE] De $request->input('name')");
+        Log::channel('telegram')->notice("Novo pedido de $contact->name");
         return redirect()->action([GiftController::class, 'create'])
         ->with(
             'message', 

@@ -50,7 +50,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['single', 'telegram'],
             'ignore_exceptions' => false,
         ],
 
@@ -68,15 +68,11 @@ return [
         ],
 
         'telegram' => [
-            'driver' => 'monolog',
-            'level' => 'debug',
-            'handler' => \App\Services\Log\LogTelegram::class,
-            'with' => [
-                'channel' => env('GROUP_ID'),
-                'apiKey' => env('BOT_TOKEN'),
-            ],
+            'driver' => 'custom',
+            'via'    => RLaurindo\TelegramLogger\TelegramLogger::class,
+            'level'  => 'debug',
         ],
-
+        
         'slack' => [
             'driver' => 'slack',
             'url' => env('LOG_SLACK_WEBHOOK_URL'),

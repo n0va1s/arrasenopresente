@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
-    "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "n0va1s/meajudacomopresente",
+    "type": "app",
+    "description": "Um aplicativo para ajudar a encontrar aquele presente único para uma ocasião ou pessoa especial",
+    "keywords": ["presente", "app", "laravel"],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
@@ -10,7 +10,8 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "rafaellaurindo/laravel-telegram-logging": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
