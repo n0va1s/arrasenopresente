@@ -2,7 +2,7 @@
     "name": "n0va1s/meajudacomopresente",
     "type": "app",
     "description": "Um aplicativo para ajudar a encontrar aquele presente único para uma ocasião ou pessoa especial",
-    "keywords": ["presente", "app", "laravel"],
+    "keywords": ["laravel", "app"],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",

@@ -2,11 +2,19 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TP2CXJ9');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Aqui voce encontra as melhores ideias para presentar aquela pessoa especial" />
-    <meta name="author" content="joaopaulonovais@gmail.com" />
-    <title>Me Ajuda Com o Presente @yield('title')</title>
+    <meta name="description" content="Está chegando uma data especial e não encontrou um presente para o namorado, para o pai, para o seu chefe. Deixe a nossa inteligência ajudar vc. Nós dê algumas informações e lhe daremos dicas bem legais. Sucesso com o seu presente!" />
+    <meta name="keywords" content="presente para namorado, presente para amiga, presente para conhecida, presente masculino, presente para signo, presente de aniversário, o que dar de presente, o que dar de aniversário, " />
+    <meta name="author" content="6I tecnologia" />
+    <title>Dicas de presentes para pessoas e ocasições especiais</title>
     <link rel="icon" type="image/x-icon" href="../img/icone.png" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
@@ -20,10 +28,14 @@
 </head>
 
 <body id="page-top">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP2CXJ9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
         <div class="container px-5">
-            <a class="navbar-brand fw-bold" href="#page-top">Me Ajuda Com o Presente</a>
+            <a class="navbar-brand fw-bold" href="#page-top">Arrase no Presente</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="bi-list"></i>
@@ -61,7 +73,7 @@
                 <div class="col-lg-6">
                     <!-- Mashead text and app badges-->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="display-1 lh-1 mb-3">As melhores dicas de presentes</h1>
+                        <h1 class="display-1 lh-1 mb-3">As melhores dicas de presente para um momento especial </h1>
                         <p class="lead fw-normal text-muted">Como o nosso app você encontra dicas para aquele
                             presente especial.</p>
                         <p class="lead fw-normal text-muted">E não precisa pagar nem instalar nada. Então vem!</p>
@@ -149,7 +161,7 @@
     <footer class="bg-gradient-primary-to-secondary text-center py-5">
         <div class="container px-5">
             <div class="text-white small">
-                <div class="mb-2">&copy; meajudacomopresente.com.br 2021. Todos os direitos reservados</div>
+                <div class="mb-2">&copy; arrasenopresente.com.br 2021. Todos os direitos reservados</div>
                 <a href="#!">Privacidade</a>
                 <!--
                     <span class="mx-1">&middot;</span>
