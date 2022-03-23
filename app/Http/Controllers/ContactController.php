@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Option;
 use App\Http\Requests\ContactRequest;
+use App\Mail\NewRequest;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -45,11 +47,8 @@ class ContactController extends Controller
         $contact->fill($validated);
         $contact->save();
         Log::channel('telegram')->notice("Novo pedido: $contact->gift_id");
-        return redirect()->action([GiftController::class, 'create'])
-        ->with(
-            'message', 
-            'Ótimo! Em breve vc receberá as dicas de presentes no seu email'
-        );
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new NewRequest($contact->gift));
+        return redirect()->route('done');
     }
 
     /**

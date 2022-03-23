@@ -50,4 +50,44 @@ class Profile extends Model
     {
         return $this->belongsTo(Gift::class);
     }
+
+    /**
+     * Get the age range detail.
+     */
+    public function ageRange()
+    {
+        return $this->hasOne(Option::class, "id", "age_range_id");
+    }
+
+    /**
+     * Get the segment detail.
+     */
+    public function segment()
+    {
+        return $this->hasOne(Option::class, "id", "segment_id");
+    }
+
+    /**
+     * Get the relax detail.
+     */
+    public function relax()
+    {
+        return $this->hasOne(Option::class, "id", "relax_id");
+    }
+
+     /**
+     * Get the sexual option detail.
+     */
+    public function sexualOption()
+    {
+        return $this->hasOne(Option::class, "id", "sexual_option_id");
+    }
+
+     /**
+     * Get the sign detail.
+     */
+    public function sign()
+    {
+        return $this->hasOne(Option::class, "id", "sign_id");
+    }
 }

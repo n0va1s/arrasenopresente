@@ -60,4 +60,28 @@ class Gift extends Model
     {
         return $this->hasOne(Contact::class);
     }
+
+    /**
+     * Get the occasion detail.
+     */
+    public function occasion()
+    {
+        return $this->hasOne(Option::class, "id", "occasion_id");
+    }
+
+    /**
+     * Get the priceRange detail.
+     */
+    public function priceRange()
+    {
+        return $this->hasOne(Option::class, "id", "price_range_id");
+    }
+
+    /**
+     * Get the theme detail.
+     */
+    public function theme()
+    {
+        return $this->hasOne(Option::class, "id", "theme_id");
+    }
 }

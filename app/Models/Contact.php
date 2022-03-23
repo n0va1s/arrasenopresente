@@ -47,4 +47,12 @@ class Contact extends Model
     {
         return $this->belongsTo(Gift::class);
     }
+
+    /**
+     * Get the state detail.
+     */
+    public function state()
+    {
+        return $this->hasOne(Option::class, "id", "state_id");
+    }
 }
