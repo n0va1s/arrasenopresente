@@ -24,13 +24,13 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'gift_id' => 'required|numeric',
-            'emailFrom' => 'required|email',
-            'name' => 'required|max:255',
-            'is_woman' => 'required|boolean',
-            'age' => 'required|numeric',
-            'state_id' => 'required',
-            'emailTo' => 'nullable'
+            'gift_id' => ['required', 'numeric'],
+            'emailFrom' => ['required', 'email'],
+            'name' => ['required', 'max:255'],
+            'is_woman' => ['required', 'boolean'],
+            'age' => ['required', 'numeric'],
+            'state_id' => ['required'],
+            'emailTo' => ['nullable'],
         ];
     }
 

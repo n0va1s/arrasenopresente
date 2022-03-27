@@ -4,23 +4,21 @@
 Responder para {{$name}} do {{$state}} no email {{$emailFrom}} 
 @endcomponent
 
-id: {{$id}}
-name: {{$name}}
-email: {{$emailFrom}}
-state: {{$state}}
-occasion: {{$occasion}}
-priceRange: {{$priceRange}}
-goodGift: {{$goodGift}}
-badGift: {{$badGift}}
-ageRange: {{$ageRange}}
-segment: {{$segment}}
-relax: {{$relax}}
-sexualOption: {{$sexualOption}}
-sign: {{$sign}}
-isWoman: {{$isWoman}}
-likeDay: {{$likeDay}}
-likeAnimal: {{$likeAnimal}}
-moreInformation: {{$moreInformation}}
+**Ocasião**: {{$occasion}}  
+**Faixa de preço**: {{$priceRange}}  
+**Boa ideia**: {{$goodGift}}  
+**Péssina ideia**: {{$badGift}}  
+**Faixa etária**: {{$ageRange}}  
+**Segmento**: {{$segment}}  
+**Relaxa**: {{$relax}}  
+**Opção sexual**: {{$sexualOption}}  
+**Signo**: {{$sign}}  
+**Relação**: {{$relation}}  
+**Que é**: {{$whoIs}}  
+**Gosta do dia**: {{$likeDay}}  
+**Gosta de animais**: {{$likeAnimal}}  
+**Mais informações**: {{$moreInformation}}  
 
+Um abraço,
 {{ config('app.name') }}
 @endcomponent

@@ -25,15 +25,17 @@ class ProfileRequest extends FormRequest
     {
 
         return [
-            'gift_id' => 'required|numeric',
-            'is_woman' => 'required|boolean',
-            'age_range_id' => 'required',
-            'like_day' => 'required|boolean',
-            'like_animal' => 'required|boolean',
-            'segment_id' => 'required',
-            'relax_id' => 'required',
-            'sexual_option_id' => 'required',
-            'sign_id' => 'required',
+            'gift_id' => ['required', 'numeric'],
+            'who_is' => ['required'],
+            'age_range_id' => ['required'],
+            'like_day' => ['required','boolean'],
+            'like_animal' => ['required','boolean'],
+            'segment_id' => ['required'],
+            'relax_id' => ['required'],
+            'sexual_option_id' => ['required'],
+            'sign_id' => ['required'],
+            'relationship_id' => ['required'],
+            'more_information' => ['nullable'],
         ];
     }
 
@@ -45,8 +47,7 @@ class ProfileRequest extends FormRequest
     public function messages()
     {
         return [
-            'is_woman.required' => 'O gênero é obrigatório',
-            'is_woman.boolean' => 'O gênero não válido',
+            'who_is.required' => 'O gênero é obrigatório',
             'age_range_id.required' => 'A faixa de idade é obrigatória',
             'like_day.required' => 'A opção tem energia  é obrigatório',
             'like_day.boolean' => 'A opção tem energia não é válida',
@@ -56,6 +57,7 @@ class ProfileRequest extends FormRequest
             'relax_id.required' => 'A forma de descanso é obrigatória',
             'sexual_option_id.required' => 'A orientaão sexual é obrigatória',
             'sign_id.required' => 'O signo é obrigatório',
+            'relationship_id.required' => 'O relacionamento é obrigatório',
         ];
     }
 
@@ -67,7 +69,7 @@ class ProfileRequest extends FormRequest
     public function attributes()
     {
         return [
-            'is_woman' => 'gênero',
+            'who_is' => 'gênero',
             'age_range_id' => 'faixa de idade',
             'like_day' => 'tem energia (dia/noite)',
             'like_animal' => 'gosta de animais',
@@ -75,6 +77,7 @@ class ProfileRequest extends FormRequest
             'relax_id' => 'forma de descanso',
             'sexual_option_id' => 'orientaão sexual',
             'sign_id' => 'signo',
+            'relationship_id' => 'relacionamento',
         ];
     }
 }

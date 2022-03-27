@@ -28,7 +28,8 @@ class Profile extends Model
         'relax_id',
         'sexual_option_id',
         'sign_id',
-        'is_woman',
+        'relationship_id',
+        'who_is',
         'like_day',
         'like_animal',
         'more_information',
@@ -89,5 +90,13 @@ class Profile extends Model
     public function sign()
     {
         return $this->hasOne(Option::class, "id", "sign_id");
+    }
+
+    /**
+     * Get the relation detail.
+     */
+    public function relation()
+    {
+        return $this->hasOne(Option::class, "id", "relationship_id");
     }
 }

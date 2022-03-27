@@ -30,13 +30,15 @@ class ProfileController extends Controller
         $rests                  = Option::where('group', 'RLX')->orderBy('id')->get();
         $sexual_orientations    = Option::where('group', 'SXO')->orderBy('title')->get();
         $signs                  = Option::where('group', 'SGN')->orderBy('title')->get();
+        $relations              = Option::where('group', 'RLT')->orderBy('title')->get();
         return view('profile')
         ->with('gift_id', $gift_id)
         ->with('range_ages', $range_ages)
         ->with('segments', $segments)
         ->with('rests', $rests)
         ->with('sexual_orientations', $sexual_orientations)
-        ->with('signs', $signs);
+        ->with('signs', $signs)
+        ->with('relations', $relations);
     }
 
     /**

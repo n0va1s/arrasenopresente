@@ -9,14 +9,18 @@
     <fieldset>
         <legend>De quem estamos falando?</legend>
         <div class="mb-3">
-            <label for="is_woman" class="form-label">O presente é para</label><br />
+            <label for="who_is" class="form-label">O presente é para</label><br />
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_woman" id="is_woman" value="0" required>
+                <input class="form-check-input" type="radio" name="who_is" id="who_is" value="H" required>
                 <label class="form-check-label" for="homem">Um homem</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="is_woman" id="is_woman" value="1" required>
+                <input class="form-check-input" type="radio" name="who_is" id="who_is" value="M" required>
                 <label class="form-check-label" for="mulher">Uma mulher</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="who_is" id="who_is" value="C" required>
+                <label class="form-check-label" for="mulher">Um casal</label>
             </div>
         </div>
         <div class="mb-3">
@@ -107,8 +111,21 @@
             </select>
         </div>
         <div class="mb-3">
+            <label for="relationship_id" class="form-label">Nossa relação é de</label>
+            <select id="relationship_id" name="relationship_id" class="form-select" required>
+                <option value="">Selecione</option>
+            @forelse ($relations as $option)
+                <option value="{{ $option->id }}" @selected(old('relationship_id') == {{ $option->id }})>
+                    {{ $option->title }}
+                </option>
+            @empty
+                <option value="">Nenhuma opção cadastrada</option>
+            @endforelse
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="more_information" class="form-label">Mais alguma dica?</label>
-            <textarea id="more_information" cols="30" rows="5" class="form-control" placeholder="Que carro a pessoa tem? A pessoa tem alguma causa? Tem algum vício? Sei lá... toda informação ajuda no match ;)"></textarea>
+            <textarea id="more_information" name="more_information" cols="30" rows="5" class="form-control" placeholder="Que HOBBY a pessoa tem? Qual o CARRO dele ou dela? A pessoa tem alguma CAUSA? algum VÍCIO? Sei lá... toda informação ajuda no match ;)"></textarea>
         </div>
         <input type="hidden" id="gift_id" name="gift_id" value="{{ $gift_id }}">
         <button type="submit" class="btn btn-primary">Próximo</button>
