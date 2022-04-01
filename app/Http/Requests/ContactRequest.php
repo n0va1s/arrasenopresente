@@ -24,7 +24,7 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'gift_id' => ['required', 'numeric'],
+            'code' => ['required'],
             'emailFrom' => ['required', 'email'],
             'name' => ['required', 'max:255'],
             'is_woman' => ['required', 'boolean'],

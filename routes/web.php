@@ -2,8 +2,13 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GiftController;
+use App\Http\Controllers\HintController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes();
 
 Route::get(
     '/done',
@@ -34,7 +41,7 @@ Route::post(
 )->name('gift.store');
 
 Route::get(
-    '/profile/{gift_id}',
+    '/profile/{code}',
     [ProfileController::class, 'create']
 )->name('profile.create');
 
@@ -44,7 +51,7 @@ Route::post(
 )->name('profile.store');
 
 Route::get(
-    '/contact/{gift_id}',
+    '/contact/{code}',
     [ContactController::class, 'create']
 )->name('contact.create');
 
@@ -52,3 +59,28 @@ Route::post(
     '/contact/save',
     [ContactController::class, 'store']
 )->name('contact.store');
+
+Route::get(
+    '/home', 
+    [HomeController::class, 'index']
+)->name('home');
+
+Route::get(
+    '/hint',
+    [HintController::class, 'index']
+)->name('hint.index')->middleware('auth');
+
+Route::get(
+    '/hint/{code}',
+    [HintController::class, 'create']
+)->name('hint.create')->middleware('auth');
+
+Route::post(
+    '/hint/save',
+    [HintController::class, 'store']
+)->name('hint.store');
+
+Route::get(
+    '/hint/delete/{hint}',
+    [HintController::class, 'destroy']
+)->name('hint.delete');

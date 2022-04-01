@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.front')
 
 @section('title', ' - Home')
 
@@ -127,7 +127,7 @@
             <label for="more_information" class="form-label">Mais alguma dica?</label>
             <textarea id="more_information" name="more_information" cols="30" rows="5" class="form-control" placeholder="Que HOBBY a pessoa tem? Qual o CARRO dele ou dela? A pessoa tem alguma CAUSA? algum VÍCIO? Sei lá... toda informação ajuda no match ;)"></textarea>
         </div>
-        <input type="hidden" id="gift_id" name="gift_id" value="{{ $gift_id }}">
+        <input type="hidden" id="code" name="code" value="{{ $code }}">
         <button type="submit" class="btn btn-primary">Próximo</button>
         @csrf
     </fieldset>

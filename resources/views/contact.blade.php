@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.front')
 
 @section('title', ' - Home')
 
@@ -51,8 +51,8 @@
                     pessoa a ser presenteada</b>?</label>
             <input type="email" id="emailTo" class="form-control" placeholder="Só preencha se pudermos fazer uma consulta anônima">
         </div>
+        <input type="hidden" id="code" name="code" value="{{ $code }}">
         <button type="submit" class="btn btn-primary">Enviar</button>
-        <input type="hidden" id="gift_id" name="gift_id" value="{{ $gift_id }}">
         @csrf
     </fieldset>
 </form>

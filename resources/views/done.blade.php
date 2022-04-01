@@ -15,7 +15,7 @@
     <meta name="keywords" content="presente para namorado, presente para amiga, presente para conhecida, presente masculino, presente para signo, presente de aniversário, o que dar de presente, o que dar de aniversário, " />
     <meta name="author" content="6I tecnologia" />
     <title>Dicas de presentes para pessoas e ocasições especiais</title>
-    <link rel="icon" type="image/x-icon" href="../img/icone.png" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/icone.png') }}" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/app.css" rel="stylesheet" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="masthead-device-mockup">
-                        <img src="../img/done.svg" class="img-fluid">
+                        <img src="{{ asset('img/done.svg') }}" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="../js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

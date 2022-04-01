@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             [
                 create_options::class,
                 new_options_occasion_relationship::class,
+                new_options_hint::class,
             ]
         );
     }

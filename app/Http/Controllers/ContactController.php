@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Option;
+use App\Models\Gift;
 use App\Http\Requests\ContactRequest;
 use App\Mail\NewRequest;
+
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
@@ -26,11 +28,11 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(int $gift_id)
+    public function create(string $code)
     {
         $states = Option::where('group', 'STE')->orderBy('title')->get();
         return view('contact')
-        ->with('gift_id', $gift_id)
+        ->with('code', $code)
         ->with('states', $states);
     }
 
@@ -45,6 +47,9 @@ class ContactController extends Controller
         $validated = $request->validated();
         $contact = new Contact();
         $contact->fill($validated);
+        $contact->gift_id = Gift::where(
+            'code', $request->input('code')
+        )->first()->id;
         $contact->save();
         Log::channel('telegram')->notice("Novo pedido: $contact->gift_id");
         Mail::to(env('MAIL_TO_ADDRESS'))->send(new NewRequest($contact->gift));

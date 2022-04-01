@@ -15,7 +15,7 @@
     <meta name="keywords" content="presente para namorado, presente para amiga, presente para conhecida, presente masculino, presente para signo, presente de aniversário, o que dar de presente, o que dar de aniversário, " />
     <meta name="author" content="6I tecnologia" />
     <title>Dicas de presentes para pessoas e ocasições especiais</title>
-    <link rel="icon" type="image/x-icon" href="../img/icone.png" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/icone.png') }}" />
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/app.css" rel="stylesheet" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                     <li class="nav-item">
-                        <a href="/#start">
+                        <a href="{{ url('/') }}">
                             <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0 me-2">
                                 <span class="d-flex align-items-center">
                                     <i class="bi-gift-fill me-2"></i>
@@ -82,6 +82,7 @@
                 <div class="col-lg-6">
                     <!-- Masthead device mockup feature-->
                     <div class="masthead-device-mockup">
+                        <!--
                         <svg class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="circleGradient" gradientTransform="rotate(45)">
@@ -98,10 +99,11 @@
                         <svg class="shape-2 d-none d-sm-block" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="50" cy="50" r="50"></circle>
                         </svg>
+                        -->
                         <div class="device-wrapper align-items-center">
                             <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
                                 <div class="screen bg-white text-center">
-                                    <img src="../img/gift.png" class="img-fluid mt-4">
+                                    <img src="{{ asset('img/gift.png') }}" class="img-fluid mt-4">
                                     <h3 class="d-none d-lg-block font-alt my-3 mx-3">Este presente vai deixar alguém muito feliz!</h3>
                                     <h6 class="d-lg-none font-alt my-3 mx-3">Este presente vai deixar alguém muito feliz!</h6>
                                 </div>
@@ -170,7 +172,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="../js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

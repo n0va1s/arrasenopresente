@@ -41,7 +41,7 @@ class Profile extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'id',
+        'id',        
     ];
 
     /**

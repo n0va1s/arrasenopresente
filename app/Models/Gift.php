@@ -20,6 +20,7 @@ class Gift extends Model
         'theme_id',
         'good_gift',
         'bad_gift',
+        'code',
     ];
 
     /**
@@ -83,5 +84,13 @@ class Gift extends Model
     public function theme()
     {
         return $this->hasOne(Option::class, "id", "theme_id");
+    }
+
+    /**
+     * Get all hints
+     */
+    public function hints()
+    {
+        return $this->hasMany(Hint::class, "gift_id");
     }
 }

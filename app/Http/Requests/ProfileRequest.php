@@ -25,7 +25,7 @@ class ProfileRequest extends FormRequest
     {
 
         return [
-            'gift_id' => ['required', 'numeric'],
+            'code' => ['required'],
             'who_is' => ['required'],
             'age_range_id' => ['required'],
             'like_day' => ['required','boolean'],

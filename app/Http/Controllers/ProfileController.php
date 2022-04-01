@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Option;
 use App\Models\Profile;
+use App\Models\Gift;
 use App\Http\Requests\ProfileRequest;
 
 class ProfileController extends Controller
@@ -23,7 +24,7 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(int $gift_id)
+    public function create(string $code)
     {
         $range_ages             = Option::where('group', 'AGE')->orderBy('id')->get();
         $segments               = Option::where('group', 'SGM')->orderBy('title')->get();
@@ -32,7 +33,7 @@ class ProfileController extends Controller
         $signs                  = Option::where('group', 'SGN')->orderBy('title')->get();
         $relations              = Option::where('group', 'RLT')->orderBy('title')->get();
         return view('profile')
-        ->with('gift_id', $gift_id)
+        ->with('code', $code)
         ->with('range_ages', $range_ages)
         ->with('segments', $segments)
         ->with('rests', $rests)
@@ -52,11 +53,14 @@ class ProfileController extends Controller
         $validated = $request->validated();
         $profile = new Profile();
         $profile->fill($validated);
+        $profile->gift_id = Gift::where(
+            'code', $request->input('code')
+        )->first()->id;
         $profile->save();
 
         return redirect()->action(
             [ContactController::class, 'create'], 
-            ['gift_id' => $request->input('gift_id')]
+            ['code' => $request->input('code')]
         );
     }
 

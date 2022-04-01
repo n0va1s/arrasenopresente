@@ -6,6 +6,8 @@ use App\Models\Gift;
 use App\Models\Option;
 use App\Http\Requests\GiftRequest;
 
+use Illuminate\Support\Str;
+
 class GiftController extends Controller
 {
     /**
@@ -45,10 +47,12 @@ class GiftController extends Controller
         $validated = $request->validated();
         $gift = new Gift();
         $gift->fill($validated);
+        $gift->code =  Str::uuid()->toString();
         $gift->save();
         
         return redirect()->action(
-            [ProfileController::class, 'create'], ['gift_id' => $gift->id]
+            [ProfileController::class, 'create'], 
+            ['code' => $gift->code]
         );
     }
 
