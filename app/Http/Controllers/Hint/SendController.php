@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Hint;
 
 use App\Mail\YourHints;
+use App\Models\Gift;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -71,6 +72,9 @@ class SendController extends Controller
                 $gift->name, $gift->who_is, $gift->age_range, $url
             )
         );
+        
+        Gift::where('code', $code)->update(['deleted_at' => now()]);
+        
         return redirect()->route('hint.index');
     }
 }
