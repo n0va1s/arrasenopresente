@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GiftController;
-use App\Http\Controllers\HintController;
+use App\Http\Controllers\Hint\HintController;
+use App\Http\Controllers\Hint\ViewController;
+use App\Http\Controllers\Hint\SendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -84,3 +86,13 @@ Route::get(
     '/hint/delete/{hint}',
     [HintController::class, 'destroy']
 )->name('hint.delete');
+
+Route::get(
+    '/hint/view/{code}',
+    [ViewController::class, 'show']
+)->name('hint.view');
+
+Route::get(
+    '/hint/mail/{code}',
+    [SendController::class, 'mail']
+)->name('hint.send');

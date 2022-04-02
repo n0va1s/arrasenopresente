@@ -7,8 +7,8 @@
             <div class="card-header">
                 <h1>{{ __('Pedido') }}</h1>
                 <hr>
-                <p>Um presente de <b>{{ $gift->name}}</b> para <b>@switch($gift->who_is) @case('M') um homem, @break @case('F'): uma mulher, @break @default um casal, @endswitch</b> 
-                <b>{{$gift->sexual_option}}</b>, signo de <b>{{$gift->sign}}</b> com idade entre <b>{{ $gift->price_range}}</b>, com tema <b>{{$gift->theme}}</b>
+                <p>Um presente de <b>{{ $gift->name}}</b> para <b>@switch($gift->who_is) @case('H') um homem, @break @case('M'): uma mulher, @break @default um casal, @endswitch</b> 
+                <b>{{$gift->sexual_option}}</b>, entre <b>{{$gift->age_range}}</b>, signo de <b>{{$gift->sign}}</b> com idade entre <b>{{ $gift->price_range}}</b>, com tema <b>{{$gift->theme}}</b>
                 @if($gift->like_day ==="1"), que gosta do dia @else, não gosta do dia @endif 
                 @if($gift->like_animal ==="1"), que gosta de animais @else, não gosta de animais @endif 
                 , que trabalha no segmento de <b>{{$gift->segment}}</b> e relaxa <b>{{$gift->relax}}</b>. 
@@ -37,7 +37,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="link" class="form-label">Link</label>
-                    <input type="text" id="link" name="link" class="form-control" placeholder="Qual o endereço direto para o produto ou serviço" required>
+                    <input type="text" id="link" name="link" class="form-control" maxlength="255" placeholder="Qual o endereço direto para o produto ou serviço">
                 </div>
                 </fieldset>
                 <input type="hidden" id="code" name="code" value="{{ $gift->code }}">
@@ -54,6 +54,9 @@
             @empty
                 <div class="row mt-3">Nada cadastrado ainda...</div>
             @endforelse
+            <div class="row mt-3">
+                <a href="{{route('hint.send', $line->code)}}" class="float-right btn btn-light">Enviar</a>
+            </div>
         </div>
     </div>
 </div>

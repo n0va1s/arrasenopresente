@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Hint;
 
 use App\Models\Gift;
 use App\Models\Hint;
 use App\Models\Option;
 use App\Http\Requests\HintRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 class HintController extends Controller
@@ -59,18 +60,19 @@ class HintController extends Controller
             ->join('options as sign', 'sign.id', '=', 'profiles.sign_id')
             ->where('code', '=', $code)
             ->select(
-                'gifts.id', 'gifts.code','gifts.good_gift', 'gifts.bad_gift',
-                'contacts.name','contacts.emailFrom', 'contacts.emailTo',
-                'profiles.who_is', 'profiles.like_day', 'profiles.like_animal',
-                'occasion.title as occasion' , 'price_range.title as price_range', 'theme.title as theme',
-                'age_range.title as age_range', 'segment.title as segment', 'relax.title as relax',
+                'gifts.id', 'gifts.code', 'gifts.good_gift', 'gifts.bad_gift', 
+                'age_range.title as age_range', 'contacts.name', 'contacts.emailFrom', 
+                'contacts.emailTo', 'profiles.who_is', 'profiles.like_day', 'profiles.like_animal', 
+                'occasion.title as occasion', 'price_range.title as price_range', 'theme.title as theme', 
+                'age_range.title as age_range', 'segment.title as segment', 'relax.title as relax', 
                 'sexual_option.title as sexual_option', 'sign.title as sign'
             )->first();
         
         $groups = Option::where('group', 'HNT')->orderBy('title')->get();
         $hints = DB::table('hints')
             ->join('options as groups', 'hints.group_id', '=', 'groups.id')
-            ->select('hints.id', 'hints.title', 'hints.link', 'groups.title as group')
+            ->join('gifts', 'gifts.id', '=', 'hints.gift_id')
+            ->select('hints.id', 'hints.title', 'hints.link', 'groups.title as group', 'gifts.code')
             ->where('hints.gift_id', '=', $gift->id)->get();
         return view('hint.create')
             ->with('gift', $gift)

@@ -36,7 +36,7 @@ class NewRequest extends Mailable
      */
     public function build()
     {
-        return $this->subject(env("MAIL_SUBJECT"))->markdown(
+        return $this->subject("Novo pedido")->markdown(
             'mail.newrequest', [
                 'id' => $this->gift->id,
                 'name' => $this->gift->contact->name,

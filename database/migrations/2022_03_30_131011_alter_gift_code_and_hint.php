@@ -34,7 +34,7 @@ class AlterGiftCodeAndHint extends Migration
                 $table->unsignedInteger('gift_id');
                 $table->unsignedInteger('group_id');
                 $table->string('title');
-                $table->string('link');
+                $table->string('link')->nullable();
                 $table->datetime('expired_at')->nullable();
                 $table->boolean('is_confirmed')->default(false);
                 $table->foreign('gift_id')->references('id')->on('gifts');

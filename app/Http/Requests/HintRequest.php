@@ -27,7 +27,7 @@ class HintRequest extends FormRequest
         return [
             'group_id' => ['required'],
             'title' => ['required'],
-            'link' => ['required', 'url'],
+            'link' => ['nullable', 'url'],
         ];
     }
 
@@ -41,7 +41,7 @@ class HintRequest extends FormRequest
         return [
             'group_id.required' => 'O tipo é obrigatória',
             'title.required' => 'O título é obrigatório',
-            'link.required' => 'O link é obrigatório',
+            'link.url' => 'A URL não é válida',
         ];
     }
 

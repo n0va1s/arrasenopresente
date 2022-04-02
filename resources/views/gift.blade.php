@@ -48,11 +48,11 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="good_gift" class="form-label">Um presente legal seria</label>
+            <label for="good_gift" class="form-label">Estamos no caminho CERTO se</label>
             <textarea id="good_gift" name="good_gift" cols="30" rows="2" class="form-control" placeholder="Me fala um presente que vc deu e foi legal ou algo que vc pensou e não tem certeza"></textarea>
         </div>
         <div class="mb-3">
-            <label for="bad_gift" class="form-label">Um presente ruim seria</label>
+            <label for="bad_gift" class="form-label">Estamos no caminho ERRADO se</label>
             <textarea id="bad_gift" name="bad_gift" cols="30" rows="2" class="form-control" placeholder="Me fala um presente que vc deu e foi ruim ou algo que vc não quer repetir"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Próximo</button>

@@ -1,6 +1,6 @@
 ## Sobre o meajudacomopresente
 
-O Me Ajuda com o Presente é um aplicação web , 100% responsiva, para ajudar a encontrar o presente ideal para uma ocasião ou uma pessoa especial
+O Arrase no Presente é um aplicação web , 100% responsiva, para ajudar a encontrar o presente ideal para uma ocasião ou uma pessoa especial
 
 ## Tecnologias
 
@@ -12,4 +12,4 @@ Nós somos a 6I uma startup brasiliense que se diverte usando tecnologia para re
 
 ## Licença
 
-O meajudacomopresente é um software licenciado sob a [MIT license](https://opensource.org/licenses/MIT).
+O Arrase no Presente é um software licenciado sob a [MIT license](https://opensource.org/licenses/MIT).
