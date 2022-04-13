@@ -54,9 +54,11 @@
             @empty
                 <div class="row mt-3">Nada cadastrado ainda...</div>
             @endforelse
+            @if(count($hints) > 1)
             <div class="row mt-3">
-                <a href="{{route('hint.send', $line->code)}}" class="float-right btn btn-light">Enviar</a>
+                <a href="{{route('hint.send', $gift->code)}}" class="float-right btn btn-light">Enviar</a>
             </div>
+            @endif
         </div>
     </div>
 </div>

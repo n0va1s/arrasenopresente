@@ -14,6 +14,7 @@
     <meta name="description" content="Está chegando uma data especial e não encontrou um presente para o namorado, para o pai, para o seu chefe. Deixe a nossa inteligência ajudar vc. Nós dê algumas informações e lhe daremos dicas bem legais. Sucesso com o seu presente!" />
     <meta name="keywords" content="presente para namorado, presente para amiga, presente para conhecida, presente masculino, presente para signo, presente de aniversário, o que dar de presente, o que dar de aniversário, " />
     <meta name="author" content="6I tecnologia" />
+    <meta name="lomadee-verification" content="{{env('LOMADEE_TOKEN')}}" />
     <title>Dicas de presentes para pessoas e ocasições especiais</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('img/icone.png') }}" />
     <!-- Bootstrap icons-->

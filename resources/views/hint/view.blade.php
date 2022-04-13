@@ -16,13 +16,13 @@
         </p>
     </div>
     <div class="col-md-6">
-        <img src="{{ asset('img/hints.png') }}" class="img-fluid" alt="Imagem de uma caixa embalada para presente">
+        <img src="{{ asset('img/hints.png') }}" class="img-fluid" style="width: 60%" alt="Uma pessoa dançando e jogando papel picado">
     </div>
     <div class="row mt-5">
         <h1>{{ __('Nossas dicas são essas:') }}</h1>
         @forelse ($hints as $line)
         @if($line->group === 'Bônus')
-        <div class="card" style="width: 18rem;">
+        <div class="card mx-1 my-1" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Mais uma dica pra vc</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$line->group}}</h6>
@@ -30,7 +30,7 @@
             </div>
         </div>
         @else
-        <div class="card" style="width: 18rem;">
+        <div class="card mx-1 my-1" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">{{$line->title}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$line->group}}</h6>

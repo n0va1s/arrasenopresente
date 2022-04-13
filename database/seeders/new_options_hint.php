@@ -16,6 +16,6 @@ class new_options_hint extends Seeder
     {
         DB::table('options')->insert(['title' => 'Bônus', 'group' => 'HNT']);
         DB::table('options')->insert(['title' => 'Serviço', 'group' => 'HNT']);
-        DB::table('options')->insert(['title' => 'Serviço', 'group' => 'HNT']);
+        DB::table('options')->insert(['title' => 'Produto', 'group' => 'HNT']);
     }
 }
