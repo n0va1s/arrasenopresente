@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ReCAPTCHAv3;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GiftRequest extends FormRequest
@@ -29,6 +30,7 @@ class GiftRequest extends FormRequest
             'theme_id' => ['required'],
             'good_gift' => ['nullable'],
             'bad_gift' => ['nullable'],
+            'grecaptcha' => ['required', new ReCAPTCHAv3],
         ];
     }
 

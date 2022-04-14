@@ -11,7 +11,7 @@
     </div>
     <div class="col-lg-6">
         <div class="masthead-device-mockup">
-            <img src="{{ asset('img/done.svg') }}" class="img-fluid">
+            <img src="{{ asset('img/done.svg') }}" style="width: 60%;" class="img-fluid">
         </div>
     </div>
 </div>

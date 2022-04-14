@@ -5,7 +5,7 @@
 @section('step', 'Passo 1')
 
 @section('content')
-<form id="frmgift" method="post" action="{{ route('gift.store') }}">
+<form id="frmgift" method="post" action="{{ route('gift.store') }}" data-grecaptcha-action="gift">
     <fieldset>
         <legend>Para que ocasião?</legend>
         <div class="mb-3">

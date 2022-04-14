@@ -9,6 +9,10 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TP2CXJ9');</script>
     <!-- End Google Tag Manager -->
+    <!-- Google Recaptcha V3 -->
+    <meta name="grecaptcha-key" content="{{config('recaptcha.v3.public_key')}}">
+    <script src="https://www.google.com/recaptcha/api.js?render={{config('recaptcha.v3.public_key')}}"></script>
+    <!-- End Google Recaptcha V3 -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Está chegando uma data especial e não encontrou um presente para o namorado, para o pai, para o seu chefe. Deixe a nossa inteligência ajudar vc. Nós dê algumas informações e lhe daremos dicas bem legais. Sucesso com o seu presente!" />
@@ -69,8 +73,8 @@
     </nav>
     <!-- Mashead header-->
     <header class="masthead">
-        <div class="container px-5">
-            <div class="row gx-5 align-items-center">
+        <div class="container">
+            <div class="row pt-5 align-items-center">
                 <div class="col-lg-6">
                     <!-- Mashead text and app badges-->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
@@ -104,7 +108,7 @@
                         <div class="device-wrapper align-items-center">
                             <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
                                 <div class="screen bg-white text-center">
-                                    <img src="{{ asset('img/gift.png') }}" class="img-fluid mt-4">
+                                    <img src="{{ asset('img/gift.png') }}" style="width: 80%;" class="img-fluid mt-5">
                                     <h3 class="d-none d-lg-block font-alt my-3 mx-3">Este presente vai deixar alguém muito feliz!</h3>
                                     <h6 class="d-lg-none font-alt my-3 mx-3">Este presente vai deixar alguém muito feliz!</h6>
                                 </div>
