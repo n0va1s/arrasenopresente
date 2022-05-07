@@ -48,7 +48,11 @@ class ReCAPTCHAv3 implements Rule
 
     private function getScore($response)
     {
-        return json_decode($response->getBody(), true)['score'];
+        json_decode($response->getBody(), true)['success'] ? 
+        $value =  json_decode($response->getBody(), true)['score'] : 
+        $value = 0;
+        return $value;
+        
     }
 
     /**

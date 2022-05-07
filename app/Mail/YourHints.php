@@ -27,11 +27,13 @@ class YourHints extends Mailable
         string $name, 
         string $who_is, 
         string $age_range, 
+        string $occasion,
         string $url)
     {
         $this->name = $name;
         $this->who_is = $who_is;
         $this->age_range = $age_range;
+        $this->occasion = $occasion;
         $this->url = $url;
     }
 
@@ -47,6 +49,7 @@ class YourHints extends Mailable
                 'name' => $this->name,
                 'who_is' => $this->who_is,
                 'age_range' => $this->age_range,
+                'occasion' => $this->occasion,
                 'url' => $this->url,
             ]
         );

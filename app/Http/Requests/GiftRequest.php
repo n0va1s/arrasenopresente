@@ -30,7 +30,7 @@ class GiftRequest extends FormRequest
             'theme_id' => ['required'],
             'good_gift' => ['nullable'],
             'bad_gift' => ['nullable'],
-            'grecaptcha' => ['required', new ReCAPTCHAv3],
+            //'grecaptcha' => ['required', new ReCAPTCHAv3],
         ];
     }
 

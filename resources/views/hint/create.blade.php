@@ -10,14 +10,13 @@
             <div class="card-header">
                 <h1>{{ __('Pedido') }}</h1>
                 <hr>
-                <p>Um presente de <b>{{ $gift->name}}</b> para <b>@switch($gift->who_is) @case('H') um homem, @break @case('M'): uma mulher, @break @default um casal, @endswitch</b> 
-                <b>{{$gift->sexual_option}}</b>, entre <b>{{$gift->age_range}}</b>, signo de <b>{{$gift->sign}}</b> com idade entre <b>{{ $gift->price_range}}</b>, com tema <b>{{$gift->theme}}</b>
-                @if($gift->like_day ==="1"), que gosta do dia @else, não gosta do dia @endif 
-                @if($gift->like_animal ==="1"), que gosta de animais @else, não gosta de animais @endif 
-                , que trabalha no segmento de <b>{{$gift->segment}}</b> e relaxa <b>{{$gift->relax}}</b>. 
-                @if(isset($gift->good_gift) || isset($gift->bad_gift))Lembrando: @endif
-                @if(isset($gift->good_gift)) que um presente que já fez sucesso foi <b>{{$gift->good_gift}}</b>@endif
-                @if(isset($gift->bad_gift)) que um presente a evitar é <b>{{$gift->bad_gift}}</b>@endif
+                <p>Um presente de <b>{{ $gift->name}}</b>, <b>{{ $gift->relationship }}</b>, para <b>{{$gift->who_is}}</b> 
+                    idade <b>{{$gift->age_range}}</b>, de <b>{{$gift->sign}}</b>, faixa <b>{{ $gift->price_range}}</b>, tema <b>{{$gift->theme}}</b>,
+                    que <b>{{$gift->like_day}}</b>, <b>{{$gift->like_animal}}</b>,
+                    trabalha <b>{{$gift->segment}}</b> e relaxa <b>{{$gift->relax}}</b>. 
+                    @if(isset($gift->good_gift) || isset($gift->bad_gift))<br />Lembrando: @endif
+                    @if(isset($gift->good_gift))<br /> Dica: <b>{{$gift->good_gift}}</b>@endif
+                    @if(isset($gift->bad_gift))<br /> Evitar: <b>{{$gift->bad_gift}}</b>@endif
                 </p>
             </div>
             <div class="row my-3">
@@ -37,7 +36,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Título</label>
-                        <input type="text" id="title" name="title" class="form-control" placeholder="Como chamar a atenção de quem lê" required>
+                        <input type="text" id="title" name="title" class="form-control" maxlength="255" placeholder="Como chamar a atenção de quem lê" required>
                     </div>
                     <div class="mb-3">
                         <label for="link" class="form-label">Link</label>

@@ -36,6 +36,20 @@ class NewRequest extends Mailable
      */
     public function build()
     {
+        switch($this->gift->profile->who_is) {
+            case 'H':  
+                $this->gift->profile->who_is = 'um homem';
+                break;
+            case 'M':  
+                $this->gift->profile->who_is = 'uma mulher'; 
+                break;
+            default:
+            $this->gift->profile->who_is = 'um casal';
+        }
+
+        $this->gift->profile->like_day = $this->gift->profile->like_day ? 'gosta do dia': 'gosta da noite';
+        $this->gift->profile->like_animal = $this->gift->profile->like_animal ? 'gosta de animais': 'não sabe ou não gosta de animais';
+
         return $this->subject("Novo pedido")->markdown(
             'mail.newrequest', [
                 'id' => $this->gift->id,

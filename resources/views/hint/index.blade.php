@@ -25,10 +25,10 @@
                         <td>{{ $gift->title }}</td>
                         <td>
                             @switch($gift->who_is)
-                                @case('F')
+                                @case('M')
                                     Mulher
                                     @break
-                                @case('M')
+                                @case('H')
                                     Homem
                                     @break
                                 @default

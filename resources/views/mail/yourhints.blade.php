@@ -4,12 +4,12 @@
 
 ## Seu pedido foi:
 
-Um presente de **{{ $name}}** para **{{$who_is}}**, de **{{$age_range}}**...
+Um presente de **{{ $name}}** para **{{$who_is}}**, de **{{$age_range}}** por causa **{{$occasion}}**
 
 @endcomponent
 
 @component('mail::button', ['url' => $url])
-Veja as dicas que preparamos para vc
+Clique aqui e veja as dicas que preparamos para vc
 @endcomponent
 
 Um abraço,  
