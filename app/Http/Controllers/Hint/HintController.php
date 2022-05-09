@@ -54,7 +54,8 @@ class HintController extends Controller
             ->join('options as groups', 'hints.group_id', '=', 'groups.id')
             ->join('gifts', 'gifts.id', '=', 'hints.gift_id')
             ->select('hints.id', 'hints.title', 'hints.link', 'groups.title as group', 'gifts.code')
-            ->where('hints.gift_id', '=', $gift->id)->get();
+            ->where('hints.gift_id', '=', $gift->id)
+            ->whereNull('hints.deleted_at')->get();
         return view('hint.create')
             ->with('gift', $gift)
             ->with('groups', $groups)

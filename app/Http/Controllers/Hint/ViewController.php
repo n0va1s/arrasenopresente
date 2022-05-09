@@ -25,7 +25,7 @@ class ViewController extends Controller
                 'hints.is_confirmed', 'groups.title as group'
             )->where('hints.gift_id', '=', $gift->id)->get();
         
-        Log::channel('telegram')->notice("Dicas acessadas: $code");
+        //Log::channel('telegram')->notice("Dicas acessadas: $code");
         
         return view('hint.view')
             ->with('gift', $gift)
@@ -41,7 +41,7 @@ class ViewController extends Controller
     {
         Hint::where('code', $code)->update(['is_confirmed' => 1]);
         
-        Log::channel('telegram')->notice("Acertamos: $code");
+        //Log::channel('telegram')->notice("Acertamos: $code");
         
         return redirect()->back()
         ->with('message', 'Valeu pelo feedback!');

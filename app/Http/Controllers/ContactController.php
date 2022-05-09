@@ -51,7 +51,7 @@ class ContactController extends Controller
             'code', $request->input('code')
         )->first()->id;
         $contact->save();
-        Log::channel('telegram')->notice("Novo pedido: $contact->gift_id");
+        //Log::channel('telegram')->notice("Novo pedido: $contact->gift_id");
         Mail::to(env('MAIL_TO_ADDRESS'))->send(new NewRequest($contact->gift));
         return redirect()->route('done');
     }
