@@ -93,6 +93,11 @@ Route::get(
 )->name('hint.view');
 
 Route::get(
+    '/hint/liked/{code}',
+    [ViewController::class, 'liked']
+)->name('hint.liked');
+
+Route::get(
     '/hint/mail/{code}',
     [SendController::class, 'mail']
 )->name('hint.send');

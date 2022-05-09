@@ -26,7 +26,7 @@ class Hint extends Model
         'group_id',
         'title',
         'link',
-        'expired_at',
+        'code',
         'is_confirmed',
     ];
 
@@ -37,6 +37,17 @@ class Hint extends Model
      */
     protected $hidden = [
         'id',
+        'deleted_at',
+
+    ];
+
+     /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'deleted_at' => 'datetime',
     ];
 
     /**

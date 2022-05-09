@@ -71,6 +71,20 @@
     <!-- Mashead header-->
     <header class="masthead">
         <div class="container px-5">
+            @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            @if(session()->has('message'))
+            <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
+                {{ session()->get('message') }}
+            </div>
+            @endif
             @yield('content')
         </div>
     </header>

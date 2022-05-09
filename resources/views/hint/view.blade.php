@@ -27,6 +27,11 @@
                 <h6 class="card-subtitle mb-2 text-muted">{{$line->group}}</h6>
                 <p class="card-text">{{$line->title}}</p>
             </div>
+            @if( ! $line->is_confirmed)
+            <div class="d-flex justify-content-center mb-3">
+                <a class="btn btn-sm btn-outline-secondary" href="{{route('hint.liked', $line->code )}}" role="button">Gostei</a>
+            </div>
+            @endif
         </div>
         @else
         <div class="card mx-1 my-1" style="width: 18rem;">
@@ -34,7 +39,13 @@
                 <h5 class="card-title">{{$line->title}}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$line->group}}</h6>
                 <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
-                <a href="{{$line->link}}" target="_blaank" class="card-link">Acesse</a>
+                <!--<a href="" target="_blaank" class="card-link"></a>-->
+                <div class="d-flex justify-content-evenly mt-3">
+                    <a class="btn btn-sm btn-primary" href="{{$line->link}}" role="button">Acesse</a>
+                    @if( ! $line->is_confirmed)
+                    <a class="btn btn-sm btn-outline-secondary" href="{{route('hint.liked', $line->code )}}" role="button">Gostei</a>
+                    @endif
+                </div>
             </div>
         </div>
         @endif
