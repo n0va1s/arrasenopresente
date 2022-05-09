@@ -33,7 +33,7 @@ class SendController extends Controller
                 
         $url = url('hint/view', $code);
         
-        Log::channel('telegram')->notice("Dicas enviadas: $code");
+        //Log::channel('telegram')->notice("Dicas enviadas: $code");
         Mail::to($gift->emailFrom)->send(
             new YourHints(
                 $gift->name, $gift->who_is, $gift->age_range, $gift->occasion, $url

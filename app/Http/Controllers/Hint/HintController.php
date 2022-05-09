@@ -9,6 +9,7 @@ use App\Services\GiftService;
 use App\Http\Requests\HintRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class HintController extends Controller
 {
@@ -78,6 +79,7 @@ class HintController extends Controller
         $hint = new Hint();
         $hint->fill($validated);
         $hint->gift_id = $gift_id;
+        $hint->code =  Str::uuid()->toString();
         $hint->save();
         
         return redirect()->back()

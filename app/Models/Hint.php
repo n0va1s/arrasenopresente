@@ -26,8 +26,6 @@ class Hint extends Model
         'group_id',
         'title',
         'link',
-        'code',
-        'is_confirmed',
     ];
 
     /**
@@ -38,7 +36,8 @@ class Hint extends Model
     protected $hidden = [
         'id',
         'deleted_at',
-
+        'code',
+        'is_confirmed',
     ];
 
      /**
