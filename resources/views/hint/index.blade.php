@@ -40,6 +40,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $gifts->links('pagination::bootstrap-4') }}
         </div>
     </div>
 </div>
