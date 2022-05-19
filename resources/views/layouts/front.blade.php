@@ -82,7 +82,7 @@
                         <h1 class="display-1 lh-1 mb-3">As melhores dicas de presente para um momento especial </h1>
                         <p class="lead fw-normal text-muted">Como o nosso app você encontra dicas para aquele
                             presente especial. E não precisa pagar nem instalar nada. Então vem!</p>
-                        <p class="lead fw-normal text-muted">Nossas respostas chegam em até 72 horas</p>
+                        <p class="lead fw-normal text-muted">Nossas dicas de presente chegam em até 72 horas</p>
                     </div>
                 </div>
                 <div class="col-lg-6">

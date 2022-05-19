@@ -41,7 +41,7 @@
                 <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
                 <!--<a href="" target="_blaank" class="card-link"></a>-->
                 <div class="d-flex justify-content-evenly mt-3">
-                    <a class="btn btn-sm btn-primary" href="{{$line->link}}" role="button">Acesse</a>
+                    <a class="btn btn-sm btn-primary" href="{{$line->link}}" role="button" target="_blank">Acesse</a>
                     @if( ! $line->is_confirmed)
                     <a class="btn btn-sm btn-outline-secondary" href="{{route('hint.liked', $line->code )}}" role="button">Gostei</a>
                     @endif

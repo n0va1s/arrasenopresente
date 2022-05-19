@@ -25,6 +25,7 @@ class GiftService
             ->join('options as sexual_option', 'sexual_option.id', '=', 'profiles.sexual_option_id')
             ->join('options as sign', 'sign.id', '=', 'profiles.sign_id')
             ->join('options as relationship', 'relationship.id', '=', 'profiles.relationship_id')
+            ->join('options as state', 'state.id', '=', 'contacts.state_id')
             ->where('code', '=', $code)
             ->select(
                 'gifts.id', 'gifts.code', 'gifts.good_gift', 'gifts.bad_gift', 
@@ -32,7 +33,8 @@ class GiftService
                 'contacts.emailTo', 'profiles.who_is', 'profiles.like_day', 'profiles.like_animal', 
                 'occasion.title as occasion', 'price_range.title as price_range', 'theme.title as theme', 
                 'age_range.title as age_range', 'segment.title as segment', 'relax.title as relax', 
-                'sexual_option.title as sexual_option', 'sign.title as sign', 'relationship.title as relationship'
+                'sexual_option.title as sexual_option', 'sign.title as sign', 'relationship.title as relationship',
+                'state.title as state'
             )->first();
 
         // TODO: remover este tratamento para o select case
