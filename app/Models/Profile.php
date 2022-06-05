@@ -33,6 +33,7 @@ class Profile extends Model
         'like_day',
         'like_animal',
         'more_information',
+        'hobby_id',
     ];
 
     /**
@@ -90,6 +91,14 @@ class Profile extends Model
     public function sign()
     {
         return $this->hasOne(Option::class, "id", "sign_id");
+    }
+
+    /**
+     * Get the hobby detail.
+     */
+    public function hobby()
+    {
+        return $this->hasOne(Option::class, "id", "hobby_id");
     }
 
     /**

@@ -43,26 +43,6 @@ Route::post(
 )->name('gift.store');
 
 Route::get(
-    '/profile/{code}',
-    [ProfileController::class, 'create']
-)->name('profile.create');
-
-Route::post(
-    '/profile/save',
-    [ProfileController::class, 'store']
-)->name('profile.store');
-
-Route::get(
-    '/contact/{code}',
-    [ContactController::class, 'create']
-)->name('contact.create');
-
-Route::post(
-    '/contact/save',
-    [ContactController::class, 'store']
-)->name('contact.store');
-
-Route::get(
     '/home', 
     [HomeController::class, 'index']
 )->name('home');

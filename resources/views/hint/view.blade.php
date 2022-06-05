@@ -5,10 +5,9 @@
     <div class="col-md-6">
         <h1>{{ __('Pedido') }}</h1>
         <hr>
-        <p>Um presente de <b>{{ $gift->name}}</b>, <b>{{ $gift->relationship }}</b>, para <b>{{$gift->who_is}}</b> 
-        idade <b>{{$gift->age_range}}</b>, de <b>{{$gift->sign}}</b>, faixa <b>{{ $gift->price_range}}</b>, tema <b>{{$gift->theme}}</b>,
-        que <b>{{$gift->like_day}}</b>, <b>{{$gift->like_animal}}</b>,
-        trabalha <b>{{$gift->segment}}</b> e relaxa <b>{{$gift->relax}}</b>. 
+        <p>Um presente de <b>{{ $gift->name}}</b>, para <b>{{ $gift->relationship }}</b>
+        idade <b>{{$gift->age_range}}</b>, de <b>{{$gift->sign}}</b>, curte <b>{{$gift->hobby}},
+        na faixa de <b>{{ $gift->price_range}}</b>
         @if(isset($gift->good_gift) || isset($gift->bad_gift))<br />Lembrando: @endif
         @if(isset($gift->good_gift))<br /> Dica: <b>{{$gift->good_gift}}</b>@endif
         @if(isset($gift->bad_gift))<br /> Evitar: <b>{{$gift->bad_gift}}</b>@endif

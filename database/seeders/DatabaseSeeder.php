@@ -16,9 +16,10 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(
             [
-                create_options::class,
-                new_options_occasion_relationship::class,
-                new_options_hint::class,
+                //create_options::class,
+                //new_options_occasion_relationship::class,
+                //new_options_hint::class,
+                new_options_hobby::class,
             ]
         );
     }

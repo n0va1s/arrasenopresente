@@ -27,9 +27,14 @@ class GiftRequest extends FormRequest
         return [
             'occasion_id' => ['required'],
             'price_range_id' => ['required'],
-            'theme_id' => ['required'],
-            'good_gift' => ['nullable'],
-            'bad_gift' => ['nullable'],
+            'who_is' => ['required'],
+            'age_range_id' => ['required'],
+            'hobby_id' => ['required'],
+            'sign_id' => ['required'],
+            'relationship_id' => ['required'],
+            'email_from' => ['required', 'email'],
+            'name' => ['required'],
+            'more_information' => ['nullable'],
             //'grecaptcha' => ['required', new ReCAPTCHAv3],
         ];
     }
@@ -44,7 +49,13 @@ class GiftRequest extends FormRequest
         return [
             'occasion_id.required' => 'A ocasião é obrigatória',
             'price_range_id.required' => 'A faixa de preço é obrigatória',
-            'theme_id.required' => 'O tema é obrigatório',
+            'who_is.required' => 'O gênero é obrigatório',
+            'age_range_id.required' => 'A faixa de idade é obrigatória',
+            'hobby_id.required' => 'O hobby é obrigatório',
+            'sign_id.required' => 'O signo é obrigatório',
+            'relationship_id.required' => 'O relacionamento é obrigatório',
+            'emailFrom.required' => 'O email é obrigatório',
+            'name.required' => 'O nome é obrigatório',
         ];
     }
 
@@ -58,7 +69,13 @@ class GiftRequest extends FormRequest
         return [
             'occasion_id' => 'ocasião',
             'price_range_id' => 'faixa de preço',
-            'theme_id' => 'tema',
+            'who_is' => 'gênero',
+            'age_range_id' => 'faixa de idade',
+            'hobby_id' => 'hobby',
+            'sign_id' => 'signo',
+            'relationship_id' => 'relacionamento',
+            'emailFrom' => 'email',
+            'name' => 'nome',
         ];
     }
 }

@@ -20,7 +20,7 @@
                 <tbody>
                 @foreach ($gifts as $gift)
                     <tr>
-                        <th scope="row">{{ $gift->created_at }}</th>
+                        <th scope="row">{{ date('d/m/Y', strtotime($gift->created_at)) }}</th>                        
                         <td>{{ $gift->name }}</td>
                         <td>{{ $gift->title }}</td>
                         <td>

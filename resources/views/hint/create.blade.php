@@ -10,13 +10,12 @@
             <div class="card-header">
                 <h1>{{ __('Pedido') }}</h1>
                 <hr>
-                <p>Um presente de <b>{{ $gift->name}}</b>, de {{$gift->state}}, <b>{{ $gift->relationship }}</b> 
-                    por ocasião de <b>{{$gift->occasion}}</b>, para <b>{{$gift->who_is}}</b>, <b>{{$gift->sexual_option}}</b>,
+                <p>Um presente de <b>{{ $gift->name}}</b>, <b>{{ $gift->relationship }}</b> 
+                    por ocasião de <b>{{$gift->occasion}}</b>, para <b>{{$gift->who_is}}</b>, 
                     idade <b>{{$gift->age_range}}</b>, de <b>{{$gift->sign}}</b>, 
-                    que <b>{{$gift->like_day}}</b>, <b>{{$gift->like_animal}}</b>,
-                    trabalha <b>{{$gift->segment}}</b> e relaxa <b>{{$gift->relax}}</b>. 
+                    que <b>{{$gift->hobby}}</b>
                     @if(isset($gift->good_gift) || isset($gift->bad_gift))<br />Lembrando: @endif
-                    <br />Faixa <b>{{ $gift->price_range}}</b>, tema <b>{{$gift->theme}}</b>
+                    <br />Faixa <b>{{ $gift->price_range}}</b>
                     @if(isset($gift->good_gift))<br /> Dica: <b>{{$gift->good_gift}}</b>@endif
                     @if(isset($gift->bad_gift))<br /> Evitar: <b>{{$gift->bad_gift}}</b>@endif
                 </p>

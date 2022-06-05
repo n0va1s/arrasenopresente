@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" />
 </head>
 
 <body id="page-top">
@@ -109,7 +109,7 @@
                         <div class="device-wrapper align-items-center">
                             <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
                                 <div class="screen bg-white text-center">
-                                    <img src="{{ asset('img/gift.png') }}" style="width: 80%;" class="img-fluid mt-5">
+                                    <img src="{{ mix('img/gift.png') }}" style="width: 80%;" class="img-fluid mt-5">
                                     <h3 class="d-none d-lg-block font-alt my-3 mx-3">Este presente vai deixar alguém muito feliz!</h3>
                                     <h6 class="d-lg-none font-alt my-3 mx-3">Este presente vai deixar alguém muito feliz!</h6>
                                 </div>
@@ -133,12 +133,13 @@
         <div class="container px-5">
             <h2 class="font-alt">Umas perguntas para fazer aquele match</h2>
             <p class="lead fw-normal text-muted mb-5">
-                Preencha o que souber para encontrar dicas de presentes especiais
+                É rápido e ajuda a nossa IA a encontrar o melhor presente
             </p>
             <div class="row gx-5">
                 <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
+                    <!--
                     <small>@yield('step')</small>
-                    <!--        
+                    
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#perfil" type="button" role="tab" aria-controls="pills-profile" aria-selected="true">Presente</button>
@@ -178,7 +179,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
