@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Gift;
-use App\Models\Contact;
-use App\Models\Profile;
-use App\Models\Option;
-
 use App\Http\Requests\GiftRequest;
-use App\Mail\NewRequest;
-
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Str;
+use App\Services\GiftService;
+use Illuminate\Http\Request;
+//use App\Mail\NewRequest;
+//use Illuminate\Support\Facades\Mail;
 
 class GiftController extends Controller
 {
@@ -22,7 +17,45 @@ class GiftController extends Controller
      */
     public function index()
     {
-        //
+        return view('request.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function find()
+    {
+        $options = GiftService::getOptions();
+        return view('request.find')
+                ->with('occasions', $options['occasions'])
+                ->with('prices', $options['prices'])
+                ->with('ages', $options['ages'])
+                ->with('signs', $options['signs'])
+                ->with('relations', $options['relations'])
+                ->with('hobbies', $options['hobbies'])
+                ->with('hints', []);
+    }
+
+    /**
+     * Show all gifts for selecte options
+     *
+     * @param  Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $options = GiftService::getOptions();
+        $hints = GiftService::filter($request->all());
+        return view('request.find')
+            ->with('occasions', $options['occasions'])
+            ->with('prices', $options['prices'])
+            ->with('ages', $options['ages'])
+            ->with('signs', $options['signs'])
+            ->with('relations', $options['relations'])
+            ->with('hobbies', $options['hobbies'])
+            ->with('hints', $hints);
     }
 
     /**
@@ -32,19 +65,14 @@ class GiftController extends Controller
      */
     public function create()
     {
-        $occasions = Option::where('group', 'OCC')->orderBy('title')->get();
-        $prices = Option::where('group', 'PRC')->orderBy('id')->get();
-        $ages = Option::where('group', 'AGE')->orderBy('id')->get();
-        $signs = Option::where('group', 'SGN')->orderBy('title')->get();
-        $relations = Option::where('group', 'RLT')->orderBy('title')->get();
-        $hobbies = Option::where('group', 'HBS')->orderBy('title')->get();
-        return view('gift')
-                ->with('occasions', $occasions)
-                ->with('prices', $prices)
-                ->with('ages', $ages)
-                ->with('signs', $signs)
-                ->with('relations', $relations)
-                ->with('hobbies', $hobbies);
+        $options = GiftService::getOptions();
+        return view('request.form')
+                ->with('occasions', $options['occasions'])
+                ->with('prices', $options['prices'])
+                ->with('ages', $options['ages'])
+                ->with('signs', $options['signs'])
+                ->with('relations', $options['relations'])
+                ->with('hobbies', $options['hobbies']);
     }
 
     /**
@@ -55,34 +83,9 @@ class GiftController extends Controller
      */
     public function store(GiftRequest $request)
     {
-        $validated = $request->validated();
-        $gift = new Gift([
-                'occasion_id' => $validated['occasion_id'],
-                'price_range_id' => $validated['price_range_id'],
-                'code' =>  Str::uuid()->toString(),
-        ]);
-        $gift->save();
-
-        $profile = new Profile([
-                'gift_id' => $gift->id,
-                'age_range_id' => $validated['age_range_id'],
-                'sign_id' => $validated['sign_id'],
-                'relationship_id' => $validated['relationship_id'],
-                'who_is' => $validated['who_is'],
-                'more_information' => $validated['more_information'],
-                'hobby_id' => $validated['hobby_id'],
-        ]);
-        $gift->profile()->save($profile);
-
-        $contact = new Contact([
-                'gift_id' => $gift->id,
-                'emailFrom' => $validated['email_from'],
-                'name' => $validated['name'],
-        ]);
-        $gift->contact()->save($contact);
-        
+        $gift = GiftService::create($request->validated());
         //Mail::to(env('MAIL_TO_ADDRESS'))->send(new NewRequest($gift));
-        return redirect()->route('done');
+        return view('request.done');
     }
 
     /**

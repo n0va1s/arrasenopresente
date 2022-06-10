@@ -1,10 +1,13 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/img/demo-screen.mp4": "/img/demo-screen.mp4",
+    "/img/about.jpg": "/img/about.jpg",
+    "/img/apple-touch-icon.png": "/img/apple-touch-icon.png",
+    "/img/counts-bg.png": "/img/counts-bg.png",
     "/img/done.svg": "/img/done.svg",
-    "/img/gift.png": "/img/gift.png",
-    "/img/hints.png": "/img/hints.png",
-    "/img/icone.png": "/img/icone.png",
-    "/img/portrait_black.png": "/img/portrait_black.png"
+    "/img/favicon.png": "/img/favicon.png",
+    "/img/footer-bg.jpg": "/img/footer-bg.jpg",
+    "/img/hero-bg.jpg": "/img/hero-bg.jpg",
+    "/img/hero-img.png": "/img/hero-img.png",
+    "/js/bootstrap.js": "/js/bootstrap.js"
 }

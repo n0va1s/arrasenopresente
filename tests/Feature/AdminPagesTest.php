@@ -34,7 +34,7 @@ class AdminPagesTest extends TestCase
  
         $response = $this->actingAs($user)
                     ->withSession(['banned' => false])
-                    ->get('/hint');
+                    ->get('/dica');
                     
         $response->assertStatus(200);
     }

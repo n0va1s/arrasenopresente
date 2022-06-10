@@ -23,22 +23,37 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => true]);
 
 Route::get(
-    '/done',
+    '/pronto',
     function () {
-        return view('done');
+        return view('request.done');
     }
 )->name('done');;
 
 Route::get(
     '/',
+    [GiftController::class, 'index']
+)->name('gift.index');
+
+Route::get(
+    '/pesquisa',
+    [GiftController::class, 'find']
+)->name('gift.find');
+
+Route::post(
+    '/pesquisa/encontrar',
+    [GiftController::class, 'search']
+)->name('gift.search');
+
+Route::get(
+    '/pedido',
     [GiftController::class, 'create']
 )->name('gift.create');
 
 Route::post(
-    '/gift/save',
+    '/pedido/salvar',
     [GiftController::class, 'store']
 )->name('gift.store');
 
@@ -48,36 +63,36 @@ Route::get(
 )->name('home');
 
 Route::get(
-    '/hint',
+    '/dica',
     [HintController::class, 'index']
 )->name('hint.index')->middleware('auth');
 
 Route::get(
-    '/hint/{code}',
+    '/dica/{code}',
     [HintController::class, 'create']
 )->name('hint.create')->middleware('auth');
 
 Route::post(
-    '/hint/save',
+    '/dica/salvar',
     [HintController::class, 'store']
 )->name('hint.store');
 
 Route::get(
-    '/hint/delete/{hint}',
+    '/dica/excluir/{hint}',
     [HintController::class, 'destroy']
 )->name('hint.delete');
 
 Route::get(
-    '/hint/view/{code}',
+    '/dica/visualizar/{code}',
     [ViewController::class, 'show']
 )->name('hint.view');
 
 Route::get(
-    '/hint/liked/{code}',
+    '/dica/gostar/{code}',
     [ViewController::class, 'liked']
 )->name('hint.liked');
 
 Route::get(
-    '/hint/mail/{code}',
+    '/dica/enviar/{code}',
     [SendController::class, 'mail']
 )->name('hint.send');

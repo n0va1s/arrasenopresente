@@ -17,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/hint';
+    public const HOME = '/dica';
 
     /**
      * The controller namespace for the application.

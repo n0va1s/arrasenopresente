@@ -2,6 +2,11 @@
 
 namespace App\Services;
 
+use App\Models\Gift;
+use App\Models\Profile;
+use App\Models\Contact;
+use App\Models\Option;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class GiftService
@@ -39,10 +44,120 @@ class GiftService
             case 'M':  
                 $gift->who_is = 'uma mulher'; 
                 break;
+            case 'C':  
+                $gift->who_is = 'um casal'; 
+                break;
             default:
-                $gift->who_is = 'um casal';
+                $gift->who_is = 'gênero desconhecido';
         }
 
         return  $gift;
+    }
+
+    /**
+     * Return all gifts instead params
+     *
+     * @return array
+     */
+    public static function filter(array $params)
+    {
+        //To remove bonus from result
+        $bonus_id = DB::table('options')
+            ->where('title', '=', 'Bônus')
+            ->first()->id;
+        $hints  = DB::table('gifts')
+            ->join('profiles', 'gifts.id', '=', 'profiles.gift_id')
+            ->join('contacts', 'gifts.id', '=', 'contacts.gift_id')
+            ->join('hints', 'gifts.id', '=', 'hints.gift_id')
+            ->orWhere(function($query) use ($params, $bonus_id) {
+                $query->where('who_is', $params['who_is'])
+                    ->where('group_id', '<>', $bonus_id);
+            })
+            ->orWhere(function($query) use ($params, $bonus_id) {
+                $query->where('occasion_id', $params['occasion_id'])
+                    ->where('group_id', '<>', $bonus_id);
+            })
+            ->orWhere(function($query) use ($params, $bonus_id) {
+                $query->where('price_range_id', $params['price_range_id'])
+                    ->where('group_id', '<>', $bonus_id);
+            })
+            ->orWhere(function($query) use ($params, $bonus_id) {
+                $query->where('age_range_id', $params['age_range_id'])
+                    ->where('group_id', '<>', $bonus_id);
+            })
+            ->orWhere(function($query) use ($params, $bonus_id) {
+                $query->where('hobby_id', $params['hobby_id'])
+                    ->where('group_id', '<>', $bonus_id);
+            })
+            ->orWhere(function($query) use ($params, $bonus_id) {
+                $query->where('sign_id', $params['sign_id'])
+                    ->where('group_id', '<>', $bonus_id);
+            })
+            ->orWhere(function($query) use ($params, $bonus_id) {
+                $query->where('relationship_id', $params['relationship_id'])
+                    ->where('group_id', '<>', $bonus_id);
+            })
+            ->select(
+                'hints.title', 'hints.link',
+            )->get();
+
+        return  $hints;
+    }
+
+    /**
+     * Get options to populate the screen
+     *
+     * @return array
+     */
+    public static function getOptions()
+    {
+        $options = array();
+        $options['occasions'] = Option::where('group', 'OCC')->whereNull('deleted_at')->orderBy('title')->get();
+        $options['prices'] = Option::where('group', 'PRC')->whereNull('deleted_at')->get();
+        $options['ages'] = Option::where('group', 'AGE')->whereNull('deleted_at')->get();
+        $options['signs'] = Option::where('group', 'SGN')->whereNull('deleted_at')->orderBy('title')->get();
+        $options['relations'] = Option::where('group', 'RLT')->whereNull('deleted_at')->orderBy('title')->get();
+        $options['hobbies'] = Option::where('group', 'HBS')->whereNull('deleted_at')->orderBy('title')->get();
+        return $options;
+    }
+    
+    /**
+     * Create a new gift.
+     *
+     * @return Gift
+     */
+    public static function create(array $validated)
+    {
+        $gift = new Gift(
+            [
+                'occasion_id' => $validated['occasion_id'],
+                'price_range_id' => $validated['price_range_id'],
+                'code' =>  Str::uuid()->toString(),
+            ]
+        );
+        $gift->save();
+        
+        $profile = new Profile(
+            [
+                'gift_id' => $gift->id,
+                'age_range_id' => $validated['age_range_id'],
+                'sign_id' => $validated['sign_id'],
+                'relationship_id' => $validated['relationship_id'],
+                'who_is' => $validated['who_is'],
+                'more_information' => $validated['more_information'],
+                'hobby_id' => $validated['hobby_id'],
+            ]
+        );
+        $gift->profile()->save($profile);
+        
+        $contact = new Contact(
+            [
+                'gift_id' => $gift->id,
+                'emailFrom' => $validated['email_from'],
+                'name' => $validated['name'],
+            ]
+        );
+        $gift->contact()->save($contact);
+        return $gift;
     }
 }
