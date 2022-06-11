@@ -29,23 +29,35 @@ class GiftService
             ->join('options as relationship', 'relationship.id', '=', 'profiles.relationship_id')
             ->where('code', '=', $code)
             ->select(
-                'gifts.id', 'gifts.code', 'gifts.good_gift', 'gifts.bad_gift', 
-                'age_range.title as age_range', 'contacts.name', 'contacts.emailFrom', 
-                'contacts.emailTo', 'profiles.who_is', 'profiles.like_day', 'profiles.like_animal', 
-                'occasion.title as occasion', 'price_range.title as price_range', 'age_range.title as age_range', 
-                'sign.title as sign', 'hobby.title as hobby', 'relationship.title as relationship'
+                'gifts.id',
+                'gifts.code',
+                'gifts.good_gift',
+                'gifts.bad_gift',
+                'age_range.title as age_range',
+                'contacts.name',
+                'contacts.emailFrom',
+                'contacts.emailTo',
+                'profiles.who_is',
+                'profiles.like_day',
+                'profiles.like_animal',
+                'occasion.title as occasion',
+                'price_range.title as price_range',
+                'age_range.title as age_range',
+                'sign.title as sign',
+                'hobby.title as hobby',
+                'relationship.title as relationship'
             )->first();
 
         // TODO: remover este tratamento para o select case
-        switch($gift->who_is) {
-            case 'H':  
+        switch ($gift->who_is) {
+            case 'H':
                 $gift->who_is = 'um homem';
                 break;
-            case 'M':  
-                $gift->who_is = 'uma mulher'; 
+            case 'M':
+                $gift->who_is = 'uma mulher';
                 break;
-            case 'C':  
-                $gift->who_is = 'um casal'; 
+            case 'C':
+                $gift->who_is = 'um casal';
                 break;
             default:
                 $gift->who_is = 'gênero desconhecido';
@@ -69,36 +81,38 @@ class GiftService
             ->join('profiles', 'gifts.id', '=', 'profiles.gift_id')
             ->join('contacts', 'gifts.id', '=', 'contacts.gift_id')
             ->join('hints', 'gifts.id', '=', 'hints.gift_id')
-            ->orWhere(function($query) use ($params, $bonus_id) {
-                $query->where('who_is', $params['who_is'])
-                    ->where('group_id', '<>', $bonus_id);
-            })
-            ->orWhere(function($query) use ($params, $bonus_id) {
-                $query->where('occasion_id', $params['occasion_id'])
-                    ->where('group_id', '<>', $bonus_id);
-            })
-            ->orWhere(function($query) use ($params, $bonus_id) {
-                $query->where('price_range_id', $params['price_range_id'])
-                    ->where('group_id', '<>', $bonus_id);
-            })
-            ->orWhere(function($query) use ($params, $bonus_id) {
-                $query->where('age_range_id', $params['age_range_id'])
-                    ->where('group_id', '<>', $bonus_id);
-            })
-            ->orWhere(function($query) use ($params, $bonus_id) {
-                $query->where('hobby_id', $params['hobby_id'])
-                    ->where('group_id', '<>', $bonus_id);
-            })
-            ->orWhere(function($query) use ($params, $bonus_id) {
-                $query->where('sign_id', $params['sign_id'])
-                    ->where('group_id', '<>', $bonus_id);
-            })
-            ->orWhere(function($query) use ($params, $bonus_id) {
-                $query->where('relationship_id', $params['relationship_id'])
-                    ->where('group_id', '<>', $bonus_id);
-            })
-            ->select(
-                'hints.title', 'hints.link',
+            ->when($params['who_is'], function ($query) use ($params, $bonus_id) {
+                    $query->where('who_is', $params['who_is'])
+                        ->where('group_id', '<>', $bonus_id);
+                }
+            )
+            ->when($params['occasion_id'], function ($query) use ($params, $bonus_id) {
+                    $query->where('occasion_id', $params['occasion_id'])
+                        ->where('group_id', '<>', $bonus_id);
+                }
+            )->when($params['price_range_id'], function ($query) use ($params, $bonus_id) {
+                    $query->where('price_range_id', $params['price_range_id'])
+                        ->where('group_id', '<>', $bonus_id);
+                }
+            )->when($params['age_range_id'], function ($query) use ($params, $bonus_id) {
+                    $query->where('age_range_id', $params['age_range_id'])
+                        ->where('group_id', '<>', $bonus_id);
+                }
+            )->when($params['hobby_id'], function ($query) use ($params, $bonus_id) {
+                    $query->where('hobby_id', $params['hobby_id'])
+                        ->where('group_id', '<>', $bonus_id);
+                }
+            )->when($params['sign_id'], function ($query) use ($params, $bonus_id) {
+                    $query->where('sign_id', $params['sign_id'])
+                        ->where('group_id', '<>', $bonus_id);
+                }
+            )->when($params['relationship_id'], function ($query) use ($params, $bonus_id) {
+                    $query->where('relationship_id', $params['relationship_id'])
+                        ->where('group_id', '<>', $bonus_id);
+                }
+            )->select(
+                'hints.title',
+                'hints.link',
             )->get();
 
         return  $hints;
@@ -120,7 +134,7 @@ class GiftService
         $options['hobbies'] = Option::where('group', 'HBS')->whereNull('deleted_at')->orderBy('title')->get();
         return $options;
     }
-    
+
     /**
      * Create a new gift.
      *
@@ -136,7 +150,7 @@ class GiftService
             ]
         );
         $gift->save();
-        
+
         $profile = new Profile(
             [
                 'gift_id' => $gift->id,
@@ -149,7 +163,7 @@ class GiftService
             ]
         );
         $gift->profile()->save($profile);
-        
+
         $contact = new Contact(
             [
                 'gift_id' => $gift->id,

@@ -2,8 +2,8 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-  <meta name="grecaptcha-key" content="6LdkoW8fAAAAAAEJfe2cmfvLioOrth3Vz9qXyy4x">
-  <script src="https://www.google.com/recaptcha/api.js?render={{config('recaptcha.v3.public_key')}}"></script>
+  <!--<meta name="grecaptcha-key" content="6LdkoW8fAAAAAAEJfe2cmfvLioOrth3Vz9qXyy4x">-->
+  <!--<script src="https://www.google.com/recaptcha/api.js?render={{config('recaptcha.v3.public_key')}}"></script>-->
   <!-- End Google Recaptcha V3 -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68991112-4"></script>
@@ -97,7 +97,7 @@
   </div>
 </footer><!-- End Footer -->
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-<div id="preloader"></div>
+<!--<div id="preloader"></div>-->
 
 <!-- Vendor JS Files -->
 <script src="{{ asset('vendor/purecounter/purecounter.js') }}"></script>

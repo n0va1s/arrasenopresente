@@ -1,6 +1,6 @@
 @extends('layouts.front')
 
-@section('title', ' - Início')
+@section('title', 'A! - Início')
 
 @section('content')
 
