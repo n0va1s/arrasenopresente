@@ -118,17 +118,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   padding: 20px 0;
 }
-#topbar {
-  background: rgba(24, 6, 185, 0.8);
-  height: 60px;
-  font-size: 14px;
-  transition: all 0.5s;
-  color: #fff;
-  padding: 0;
-}
-#topbar .logo a {
-  color: #fff;
-}
 #header.header-scrolled, #header.header-inner-pages {
   background: rgba(24, 6, 185, 0.8);
   padding: 12px 0;
@@ -147,6 +136,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 #header .logo img {
   max-height: 40px;
+}
+#topbar {
+  background: rgba(24, 6, 185, 0.8);
+  height: 60px;
+  font-size: 14px;
+  transition: all 0.5s;
+  color: #fff;
+  padding: 0;
+}
+#topbar .logo a {
+  color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -483,7 +483,7 @@ h1, h2, h3, h4, h5, h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 50px 0;
+  padding: 100px 0;
   overflow: hidden;
 }
 
@@ -543,7 +543,7 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
-.read-more {
+.about .content .read-more {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -557,10 +557,10 @@ section {
   position: relative;
 }
 
-.read-more:hover {
+.about .content .read-more:hover {
   background: linear-gradient(180deg, #5846f9 0%, #7b27d8 100%);
 }
-.read-more i {
+.about .content .read-more i {
   font-size: 22px;
   position: absolute;
   right: 20px;
