@@ -5,7 +5,7 @@
 * License: https://bootstrapmade.com/license/
 */
 
-AOS.init();
+Aos.init();
 
 window.Vue = require('vue').default;
 

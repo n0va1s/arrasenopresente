@@ -18,6 +18,11 @@ a {
   text-decoration: none;
 }
 
+a div {
+  color: #444444;
+  text-decoration: none;
+}
+
 a:hover {
   color: #8577fb;
   text-decoration: none;
@@ -543,7 +548,7 @@ section {
 .about .content p:last-child {
   margin-bottom: 0;
 }
-.about .content .read-more {
+.read-more {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -557,10 +562,10 @@ section {
   position: relative;
 }
 
-.about .content .read-more:hover {
+.read-more:hover {
   background: linear-gradient(180deg, #5846f9 0%, #7b27d8 100%);
 }
-.about .content .read-more i {
+.read-more i {
   font-size: 22px;
   position: absolute;
   right: 20px;
