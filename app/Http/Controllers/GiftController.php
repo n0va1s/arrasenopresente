@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GiftRequest;
 use App\Services\GiftService;
+use App\Mail\WelcomeEmail;
+
 use Illuminate\Http\Request;
-//use App\Mail\NewRequest;
-//use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Mail;
 
 class GiftController extends Controller
 {
@@ -84,7 +85,7 @@ class GiftController extends Controller
     public function store(GiftRequest $request)
     {
         $gift = GiftService::create($request->validated());
-        //Mail::to(env('MAIL_TO_ADDRESS'))->send(new NewRequest($gift));
+        Mail::to($gift->contact->emailFrom)->queue(new WelcomeEmail($gift));
         return view('request.done');
     }
 
