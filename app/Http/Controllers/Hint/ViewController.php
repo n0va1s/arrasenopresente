@@ -40,10 +40,20 @@ class ViewController extends Controller
     public function liked(string $code)
     {
         Hint::where('code', $code)->update(['is_confirmed' => 1]);
-        
         //Log::channel('telegram')->notice("Acertamos: $code");
-        
         return redirect()->back()
         ->with('message', 'Valeu pelo feedback!');
+    }
+
+    /**
+     * Capturing that user have seen the hint
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function opened(string $code)
+    {
+        Hint::where('code', $code)->update(['is_seen' => 1]);
+        $hint = Hint::where('code', $code)->first();
+        return redirect()->away($hint->link);
     }
 }

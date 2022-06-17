@@ -63,36 +63,41 @@ Route::get(
 )->name('home');
 
 Route::get(
-    '/dica',
+    '/hint',
     [HintController::class, 'index']
 )->name('hint.index')->middleware('auth');
 
 Route::get(
-    '/dica/{code}',
+    '/hint/{code}',
     [HintController::class, 'create']
 )->name('hint.create')->middleware('auth');
 
 Route::post(
-    '/dica/salvar',
+    '/hint/store',
     [HintController::class, 'store']
 )->name('hint.store');
 
 Route::get(
-    '/dica/excluir/{hint}',
+    '/hint/delete/{hint}',
     [HintController::class, 'destroy']
 )->name('hint.delete');
 
 Route::get(
-    '/dica/visualizar/{code}',
+    '/hint/view/{code}',
     [ViewController::class, 'show']
 )->name('hint.view');
 
 Route::get(
-    '/dica/gostar/{code}',
+    '/hint/liked/{code}',
     [ViewController::class, 'liked']
 )->name('hint.liked');
 
 Route::get(
-    '/dica/enviar/{code}',
+    '/hint/opened/{code}',
+    [ViewController::class, 'opened']
+)->name('hint.opened');
+
+Route::get(
+    '/hint/send/{code}',
     [SendController::class, 'mail']
 )->name('hint.send');
