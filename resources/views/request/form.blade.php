@@ -11,7 +11,7 @@
         </div>
         <div class="contact-info d-flex align-items-center">
             <a href="mailto:dicas@arrasenopresente.com.br"><i class="bi bi-envelope d-flex align-items-center ms-4" style="font-size: 2rem; color: white;"></i></a>
-            <a href="https://wa.me/5561981546988?text=Quero%20dicas%20de%20presentes"><i class="bi bi-phone d-flex align-items-center ms-4" style="font-size: 2rem; color: white;"></i></a>
+            <a href="https://wa.me/5561981546988?text=Quero%20algo%20especial"><i class="bi bi-phone d-flex align-items-center ms-4" style="font-size: 2rem; color: white;"></i></a>
         </div>
     </div>
 </section>
@@ -113,7 +113,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="relationship_id" class="form-label">Nossa relação é de</label>
+                        <label for="relationship_id" class="form-label">O que vc é para ele, ela, eles?</label>
                         <select id="relationship_id" name="relationship_id" class="form-select" required>
                             <option value="">Selecione</option>
                             @forelse ($relations as $option)

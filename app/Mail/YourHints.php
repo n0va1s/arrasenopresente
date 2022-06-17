@@ -23,14 +23,12 @@ class YourHints extends Mailable
      * @param  \App\Models\Gift  $gift
      * @return void
      */
-    public function __construct(
-        string $name, 
-        string $who_is, 
-        string $age_range, 
-        string $occasion,
-        string $url)
+    public function __construct(string $name, string $who_is, string $age_range, string $occasion, string $url)
     {
-        $this->name = $name;
+        
+        $position = strpos($name, " ") > 0 ? strpos($name, " ") : strlen($name);
+        $this->name = substr($name, 0, $position);
+
         $this->who_is = $who_is;
         $this->age_range = $age_range;
         $this->occasion = $occasion;

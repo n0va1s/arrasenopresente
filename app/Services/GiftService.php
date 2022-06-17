@@ -146,7 +146,7 @@ class GiftService
         $options['occasions'] = Option::where('group', 'OCC')->whereNull('deleted_at')->orderBy('title')->get();
         $options['prices'] = Option::where('group', 'PRC')->whereNull('deleted_at')->get();
         $options['ages'] = Option::where('group', 'AGE')->whereNull('deleted_at')->get();
-        $options['signs'] = Option::where('group', 'SGN')->whereNull('deleted_at')->orderBy('title')->get();
+        $options['signs'] = Option::where('group', 'SGN')->whereNull('deleted_at')->get();
         $options['relations'] = Option::where('group', 'RLT')->whereNull('deleted_at')->orderBy('title')->get();
         $options['hobbies'] = Option::where('group', 'HBS')->whereNull('deleted_at')->orderBy('title')->get();
         return $options;

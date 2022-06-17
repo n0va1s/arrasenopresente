@@ -8,7 +8,7 @@
         </div>
         <div class="contact-info d-flex align-items-center">
             <a href="mailto:dicas@arrasenopresente.com.br"><i class="bi bi-envelope d-flex align-items-center ms-4" style="font-size: 2rem; color: white;"></i></a>
-            <a href="https://wa.me/5561981546988?text=Quero%20dicas%20de%20presentes"><i class="bi bi-phone d-flex align-items-center ms-4" style="font-size: 2rem; color: white;"></i></a>
+            <a href="https://wa.me/5561981546988?text=Quero%20algo%20especial"><i class="bi bi-phone d-flex align-items-center ms-4" style="font-size: 2rem; color: white;"></i></a>
         </div>
     </div>
 </section>
@@ -23,7 +23,7 @@
             <div class="col-lg-6">
                 <h4>{{ __('Esse foi o seu pedido') }}</h4>
                 <hr>
-                <p>Um presente de <b>{{ $gift->name}}</b>, para <b>{{ $gift->relationship }}</b>,
+                <p>Um presente de <b>{{ $gift->name}}</b>, que é <b>{{ $gift->relationship }}</b>, para <b>{{ $gift->who_is }}</b>,
                     idade <b>{{$gift->age_range}}</b>, de <b>{{$gift->sign}}</b>, curte <b>{{$gift->hobby}}</b>,
                     na faixa de <b>{{ $gift->price_range}}</b>
                     @if(isset($gift->good_gift) || isset($gift->bad_gift))<br />Lembrando: @endif

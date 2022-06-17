@@ -1,10 +1,11 @@
 @component('mail::message')
 
-@component('mail::panel')
+Oi {{$name}},
 
+@component('mail::panel')
 ## Seu pedido foi:
 
-Um presente de **{{ $name}}** para **{{$who_is}}**, de **{{$age_range}}** por causa **{{$occasion}}**
+Um presente para **{{$who_is}}**, de **{{$age_range}}** por causa **{{$occasion}}**
 
 @endcomponent
 

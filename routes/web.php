@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['register' => false]);
 
 Route::get(
-    '/pronto',
+    '/done',
     function () {
         return view('request.done');
     }
@@ -38,27 +38,27 @@ Route::get(
 )->name('gift.index');
 
 Route::get(
-    '/pesquisa',
+    '/hint/find',
     [GiftController::class, 'find']
 )->name('gift.find');
 
 Route::post(
-    '/pesquisa/encontrar',
+    '/hint/search',
     [GiftController::class, 'search']
 )->name('gift.search');
 
 Route::get(
-    '/pedido',
+    '/gift',
     [GiftController::class, 'create']
 )->name('gift.create');
 
 Route::post(
-    '/pedido/salvar',
+    '/gift/save',
     [GiftController::class, 'store']
 )->name('gift.store');
 
 Route::get(
-    '/home', 
+    '/admin', 
     [HomeController::class, 'index']
 )->name('home');
 

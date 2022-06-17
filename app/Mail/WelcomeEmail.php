@@ -17,7 +17,7 @@ class WelcomeEmail extends Mailable
      * @var \App\Models\Gift
      */
     protected $gift;
-    
+
     /**
      * Create a new message instance.
      * @param  \App\Models\Gift  $gift
@@ -36,16 +36,17 @@ class WelcomeEmail extends Mailable
     public function build()
     {
 
-        $name = substr(
-            $this->gift->contact->name, 
-            0,
-            strpos($this->gift->contact->name, " ")
-        );
+        $position = strpos($this->gift->contact->name, " ") > 0 ?
+            strpos($this->gift->contact->name, " ") :
+            strlen($this->gift->contact->name);
+
+        $name = substr($this->gift->contact->name, 0, $position);
 
         return $this->subject(
             "Recebemos seu pedido"
         )->markdown(
-            'mail.welcome', [
+            'mail.welcome',
+            [
                 'name' => $name,
             ]
         );
