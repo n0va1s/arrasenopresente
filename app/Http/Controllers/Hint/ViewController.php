@@ -17,9 +17,8 @@ class ViewController extends Controller
      */
     public function show(string $code)
     {
-        try {
-            $gift = GiftService::getByCode($code);
-
+        $gift = GiftService::getByCode($code);
+        if(isset($gift->id)) {
             $hints = DB::table('hints')
             ->join('options as groups', 'hints.group_id', '=', 'groups.id')
             ->select(
@@ -30,9 +29,7 @@ class ViewController extends Controller
             return view('hint.view')
             ->with('gift', $gift)
             ->with('hints', $hints);
-        } catch (\Throwable $th) {
-            report($th);
-            
+        } else {
             return view('hint.view')
             ->with('gift', null)
             ->with('hints', null);
