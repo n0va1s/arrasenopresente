@@ -12,6 +12,7 @@
         </div>
     </div>
 </section>
+@if($gift)
 <section id="start">
     <div class="container">
         <div class="row">
@@ -67,9 +68,19 @@
             </div>
             @endif
             @empty
-            <div class="row mt-3">Nada cadastrado ainda...</div>
+            <div class="row mt-3">Nenhuma dica por aqui ainda...</div>
             @endforelse
         </div>
     </div>
 </section>
+@else
+<section id="start">
+    <div class="container">
+        <div class="row">
+            <h2 class="font-alt">Ops...</h2>
+            <p class="lead fw-normal text-muted mb-5">Não encontramos esse pedido nos nossos sistemas</p>
+        </div>
+    </div>
+</section>
+@endif
 @endsection

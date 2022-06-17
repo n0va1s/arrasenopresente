@@ -48,6 +48,10 @@ class GiftService
                 'relationship.title as relationship'
             )->first();
 
+        if (!isset($gift->who_is)) {
+            return null;
+        }
+
         // TODO: remover este tratamento para o select case
         switch ($gift->who_is) {
             case 'H':
@@ -62,7 +66,6 @@ class GiftService
             default:
                 $gift->who_is = 'gênero desconhecido';
         }
-
         return  $gift;
     }
 
@@ -81,32 +84,46 @@ class GiftService
             ->join('profiles', 'gifts.id', '=', 'profiles.gift_id')
             ->join('contacts', 'gifts.id', '=', 'contacts.gift_id')
             ->join('hints', 'gifts.id', '=', 'hints.gift_id')
-            ->when($params['who_is'], function ($query) use ($params, $bonus_id) {
+            ->when(
+                $params['who_is'],
+                function ($query) use ($params, $bonus_id) {
                     $query->where('who_is', $params['who_is'])
                         ->where('group_id', '<>', $bonus_id);
                 }
             )
-            ->when($params['occasion_id'], function ($query) use ($params, $bonus_id) {
+            ->when(
+                $params['occasion_id'],
+                function ($query) use ($params, $bonus_id) {
                     $query->where('occasion_id', $params['occasion_id'])
                         ->where('group_id', '<>', $bonus_id);
                 }
-            )->when($params['price_range_id'], function ($query) use ($params, $bonus_id) {
+            )->when(
+                $params['price_range_id'],
+                function ($query) use ($params, $bonus_id) {
                     $query->where('price_range_id', $params['price_range_id'])
                         ->where('group_id', '<>', $bonus_id);
                 }
-            )->when($params['age_range_id'], function ($query) use ($params, $bonus_id) {
+            )->when(
+                $params['age_range_id'],
+                function ($query) use ($params, $bonus_id) {
                     $query->where('age_range_id', $params['age_range_id'])
                         ->where('group_id', '<>', $bonus_id);
                 }
-            )->when($params['hobby_id'], function ($query) use ($params, $bonus_id) {
+            )->when(
+                $params['hobby_id'],
+                function ($query) use ($params, $bonus_id) {
                     $query->where('hobby_id', $params['hobby_id'])
                         ->where('group_id', '<>', $bonus_id);
                 }
-            )->when($params['sign_id'], function ($query) use ($params, $bonus_id) {
+            )->when(
+                $params['sign_id'],
+                function ($query) use ($params, $bonus_id) {
                     $query->where('sign_id', $params['sign_id'])
                         ->where('group_id', '<>', $bonus_id);
                 }
-            )->when($params['relationship_id'], function ($query) use ($params, $bonus_id) {
+            )->when(
+                $params['relationship_id'],
+                function ($query) use ($params, $bonus_id) {
                     $query->where('relationship_id', $params['relationship_id'])
                         ->where('group_id', '<>', $bonus_id);
                 }
